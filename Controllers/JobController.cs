@@ -14,9 +14,9 @@ namespace JobPortal.Controllers
         // GET: JobController
         public ActionResult Index(int CurrentPage = 1, int PageSize = 10)
         {
-            //int userId = Convert.ToInt32(HttpContext.User.Claims.ElementAt(1).Value);
+            int userId = Convert.ToInt32(HttpContext.User.Claims.ElementAt(1).Value);
             var job_list = db_context.Jobs
-                //.Where(j => j.UserId == userId)
+                .Where(j => j.UserId == userId)
                 .Select(x => new JobViewModel()
                 {
                     Id = x.Id,
